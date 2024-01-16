@@ -137,3 +137,44 @@ input {
 #responder {
     transition: .2s;
 }
+
+@media (max-width: 600px){
+    .logo {
+        width: 300px;
+    }
+
+    span {
+        max-width: 300px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    table{
+        width: 750px;
+    }
+    
+    table tr td {
+        padding: 10px 20px;
+        font-size: 0.8em;
+    }
+
+    #modalQuest {
+        padding: 20px;
+    }
+
+    input {
+        font-size: 1em;
+        padding: 10px;
+        margin: 5px 0;
+    }
+
+    #closeQuest{
+        font-size: 1em;
+    }
+}
