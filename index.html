@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Tabuada Memorizer</title>
+</head>
+<body>
+    <img src="assets/img/logo.png" class="logo" alt="Logotipo">
+    <span>Responda questões rápidas de multiplicação da tabuada que tanto usamos!</span>
+    <div class="buttons">
+        <button id="btnTable">Ver tabuada</button>
+        <button id="btnQuest">Responder questões</button>
+    </div>
+    <script>
+        function showTable(num, id){
+            let place = document.getElementById(id);
+            for(let c = 1; c < 11; c++){
+                place.innerHTML += `${num} x ${c} = ${num*c} <br>`;
+            }
+        }
+    </script>
+    <div id="fade" class="hide"></div>
+    <div id="fade2" class="hide"></div>
+    <div id="modalTable" class="hide">
+        <div class="tableMain">
+            <table>
+                <tr>
+                    <td id="1"><script>showTable(1, "1")</script></td>
+                    <td id="2"><script>showTable(2, "2")</script></td>
+                    <td id="3"><script>showTable(3, "3")</script></td>
+                    <td id="4"><script>showTable(4, "4")</script></td>
+                    <td id="5"><script>showTable(5, "5")</script></td>
+                </tr>
+                <tr>
+                    <td id="6"><script>showTable(6, "6")</script></td>
+                    <td id="7"><script>showTable(7, "7")</script></td>
+                    <td id="8"><script>showTable(8, "8")</script></td>
+                    <td id="9"><script>showTable(9, "9")</script></td>
+                    <td id="10"><script>showTable(10, "10")</script></td>
+                </tr>
+            </table>
+            <button id="closeTable">Ok</button>
+        </div>
+    </div>
+    <div id="modalQuest" class="hide">
+        <p id="quest">Quanto é 2 x 3?</p>
+        <form>
+            <input type="number" id="resposta">
+            <input type="submit" id="responder" value="Enviar">
+            <button id="closeQuest">Fechar</button>
+        </form>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+</html>
