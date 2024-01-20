@@ -30,6 +30,12 @@ let random = 0
 let n1 = 0
 let n2 = 0
 let resposta = 0
+
+const alertResult = document.getElementById('alert')
+const contentAlert = document.getElementById('content-alert')
+const btnBackAlert = document.getElementById('btn-back-alert')
+const btnContinueAlert = document.getElementById('btn-continue-alert')
+
 function questao() {
     random = Math.floor(Math.random() * 10) + 1
     n1 = random
@@ -46,10 +52,21 @@ userResposta.onclick = function() {
     var userRespostaN = document.getElementById("resposta")
     let numUserResposta = Number(userRespostaN.value)
     if(numUserResposta != resposta){
-        alert("Resposta ERRADA! Tente novamente!")
+        btnContinueAlert.style.display = 'none'
+        alertResult.style.display = 'flex'
+        contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_sad</span> Resposta errada, tente novamente!!!'
+
     }else{
-        alert("Resposta CORRETA! Boa!")
+        btnContinueAlert.style.display = 'flex'
+        alertResult.style.display = 'flex'
+        contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_very_satisfied</span> Resposta CORRETA, parabéns!!!'
+        questao()
+        userRespostaN.value = ''
     }
 }
 
 openModalButton2.onclick = questao()
+
+function hiddenAlert(){
+    alertResult.style.display = 'none'
+}

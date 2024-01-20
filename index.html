@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <title>Tabuada Memorizer</title>
     <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <img src="assets/img/logo.png" class="logo" alt="Logotipo">
@@ -47,11 +49,20 @@
     </div>
     <div id="modalQuest" class="hide">
         <p id="quest">Quanto é 2 x 3?</p>
-        <form>
+        <div class="form-quest">
             <input type="number" id="resposta">
-            <input type="submit" id="responder" value="Enviar">
-            <button id="closeQuest">Fechar</button>
-        </form>
+            <div class="btns-form">
+                <button id="responder">Enviar</button>
+                <button id="closeQuest">Fechar</button>
+            </div>
+        </div>
+    </div>
+    <div class="alertResult" id="alert">
+        <p id="content-alert" style="text-align: center;"></p>
+        <div id="btns-alert">
+            <button type="submit" id="btn-back-alert" onclick="hiddenAlert()">Voltar</button>
+            <button id="btn-continue-alert" class="hide-btn-continue" onclick="hiddenAlert()">Continuar</button>
+        </div>
     </div>
     <script src="assets/js/script.js"></script>
 </body>
