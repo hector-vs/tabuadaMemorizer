@@ -38,9 +38,20 @@ class UserStatusCache{
         }
         this.#save();
     }
+
+    increaseWrongAnswers(table){
+        this.tableMap[table].wrongAnswers++;
+        this.tableMap[table].totalAnswers++;
+        this.#save();
+    }
+
+    increaseTotalAnswers(table){
+        this.tableMap[table].totalAnswers++;
+        this.#save();
+    }
 }
 
-new UserStatusCache();
+const userCache = new UserStatusCache();
 
 const toggleModal = () => {
     [modal, fade].forEach((el) => el.classList.toggle("hide"))
@@ -87,13 +98,16 @@ function processarResposta() {
         btnContinueAlert.innerText = 'Voltar'
         alertResult.style.display = 'flex'
         contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_sad</span> Resposta errada, tente novamente!!!'
-
+        userCache.increaseWrongAnswers(n1);
+        userCache.increaseWrongAnswers(n2);
     }else{
         btnContinueAlert.innerText = 'Continuar'
         alertResult.style.display = 'flex'
         contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_very_satisfied</span> Resposta CORRETA, parabéns!!!'
         questao()
         userRespostaN.value = ''
+        userCache.increaseTotalAnswers(n1);
+        userCache.increaseTotalAnswers(n2);
     }
 }
 
