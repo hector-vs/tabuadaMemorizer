@@ -33,7 +33,6 @@ let resposta = 0
 
 const alertResult = document.getElementById('alert')
 const contentAlert = document.getElementById('content-alert')
-const btnBackAlert = document.getElementById('btn-back-alert')
 const btnContinueAlert = document.getElementById('btn-continue-alert')
 
 function questao() {
@@ -43,21 +42,20 @@ function questao() {
     n2 = random
     quest.innerHTML = "Quanto é " +n1+ " x " +n2+ "?" 
     resposta = n1 * n2
-    console.log("Pergunta gerada! Resposta: "+resposta)
+    console.log("Boa, dev! Toma a resposta aí: "+resposta)
 }
 
 var userResposta = document.getElementById("responder")
-userResposta.onclick = function() {
-
+function processarResposta() {
     var userRespostaN = document.getElementById("resposta")
     let numUserResposta = Number(userRespostaN.value)
     if(numUserResposta != resposta){
-        btnContinueAlert.style.display = 'none'
+        btnContinueAlert.innerText = 'Voltar'
         alertResult.style.display = 'flex'
         contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_sad</span> Resposta errada, tente novamente!!!'
 
     }else{
-        btnContinueAlert.style.display = 'flex'
+        btnContinueAlert.innerText = 'Continuar'
         alertResult.style.display = 'flex'
         contentAlert.innerHTML = '<span class="material-symbols-outlined" style="vertical-align: middle">sentiment_very_satisfied</span> Resposta CORRETA, parabéns!!!'
         questao()
@@ -65,8 +63,19 @@ userResposta.onclick = function() {
     }
 }
 
+
+userResposta.addEventListener("click", processarResposta)
+
 openModalButton2.onclick = questao()
 
 function hiddenAlert(){
     alertResult.style.display = 'none'
 }
+
+const divForm = document.querySelector(".form-quest")
+
+divForm.addEventListener('keyup', function(event) {
+    if (event.keyCode === 13) {
+        processarResposta()
+    }
+})
