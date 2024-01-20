@@ -8,6 +8,40 @@ const closeModalButton2 = document.querySelector("#closeQuest")
 const modal2 = document.querySelector("#modalQuest")
 const fade2 = document.querySelector("#fade2")
 
+class TableStatusCache{
+    constructor(wrongAnswers, totalAnswers){
+        this.wrongAnswers = wrongAnswers;
+        this.totalAnswers = totalAnswers;
+    }
+};
+
+class UserStatusCache{
+    constructor(cache = localStorage){
+        this.cache = cache;
+        this.tableMap = this.#get() || {};
+        this.#initTableMap();
+    }
+
+    #save(key = 'tableStatus', value = this.tableMap){
+        this.cache.setItem(key, JSON.stringify(value));
+    }
+
+    #get(key = 'tableStatus'){
+        return JSON.parse(this.cache.getItem(key));
+    }
+
+    #initTableMap(){
+        for(let i = 1; i <= 10; i++){
+            const wrongAnswers = this.tableMap[i]?.wrongAnswers || 0;
+            const totalAnswers = this.tableMap[i]?.totalAnswers || 0;
+            this.tableMap[i] = new TableStatusCache(wrongAnswers, totalAnswers);
+        }
+        this.#save();
+    }
+}
+
+new UserStatusCache();
+
 const toggleModal = () => {
     [modal, fade].forEach((el) => el.classList.toggle("hide"))
 }
