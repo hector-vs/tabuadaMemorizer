@@ -39,6 +39,16 @@ class UserStatusCache{
         this.#save();
     }
 
+    #getCorrectAnswersPercentage(table){
+        const { wrongAnswers, totalAnswers } = this.tableMap[table];
+        
+        if(!wrongAnswers && !totalAnswers) return 0;
+
+        const percentage = ((totalAnswers - wrongAnswers) / totalAnswers * 100).toFixed(2);
+
+        return Number(percentage);
+    }
+
     increaseWrongAnswers(table){
         this.tableMap[table].wrongAnswers++;
         this.tableMap[table].totalAnswers++;
@@ -48,6 +58,14 @@ class UserStatusCache{
     increaseTotalAnswers(table){
         this.tableMap[table].totalAnswers++;
         this.#save();
+    }
+
+    getPercentageCorrectAnswersTable(){
+        const percentageTable = {};
+        for(let i = 1; i <= 10; i++){
+            percentageTable[i] = this.#getCorrectAnswersPercentage(i);
+        }
+        return percentageTable;
     }
 }
 
