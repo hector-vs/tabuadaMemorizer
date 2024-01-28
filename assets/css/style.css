@@ -3,221 +3,225 @@
 @import url('https://fonts.googleapis.com/css2?family=Victor+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-    --yellow: rgb(255, 205, 22);
+	--yellow: rgb(255, 205, 22);
 }
 
 *{
-    margin: 0;
-    font-family: 'Outfit', sans-serif;
+	margin: 0;
+	font-family: 'Outfit', sans-serif;
 }
 
 body {
-    background-color: var(--yellow);
-    width: 100%;
-    min-height: 100vh;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    gap: 20px;
+	background-color: var(--yellow);
+	width: 100%;
+	min-height: 100vh;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 20px;
 }
 
 .logo {
-    min-width: 230px;
-    max-width: 400px;
+	min-width: 230px;
+	max-width: 400px;
 }
 
 span {
-    text-align: center;
-    font-size: 1.3em;
-    max-width: 500px;
+	text-align: center;
+	font-size: 1.3em;
+	max-width: 500px;
 }
 
 table{
-    border-collapse: collapse;
-    background-color: var(--yellow);
-    margin-bottom: 5px;
-    width: 800px;
+	border-collapse: collapse;
+	background-color: var(--yellow);
+	margin-bottom: 5px;
+	width: 800px;
 }
 
 table tr td {
-    border: 1px solid black;
-    padding: 10px 20px;
-    font-family: 'Victor Mono', monospace;
-    font-size: 1em;
-    font-weight: bold;
+	border: 1px solid black;
+	padding: 10px 20px;
+	font-family: 'Victor Mono', monospace;
+	font-size: 1em;
+	font-weight: bold;
 }
 
 button {
-    font-size: 1.1em;
-    outline: none;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 6px;
-    background-color: black;
-    color: var(--yellow);
-    transition: .2s;
+	font-size: 1.1em;
+	outline: none;
+	border: none;
+	padding: 15px;
+	cursor: pointer;
+	border-radius: 6px;
+	background-color: black;
+	color: var(--yellow);
+	transition: .2s;
 }
 
 button:hover, #responder:hover {
-    background-color: rgb(48, 48, 48);
-    cursor: pointer;
+	background-color: rgb(48, 48, 48);
+	cursor: pointer;
 }
 
 #fade, #fade2, #modalTable, #modalQuest {
-    transition: .5s;
-    opacity: 1;
-    pointer-events: all;
+	transition: .5s;
+	opacity: 1;
+	pointer-events: all;
 }
 
 #fade, #fade2 {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: rgba(0, 0, 0, .6);
-    z-index: 5;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(0, 0, 0, .6);
+	z-index: 5;
 }
 
 #modalTable {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    overflow-x: auto;
-    max-width: 90%;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	overflow-x: auto;
+	max-width: 90%;
 }
 
 #modalQuest {
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    padding: 50px;
-    border-radius: 6px;
-    max-width: 90%;
-    background-color: var(--yellow);
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	padding: 50px;
+	border-radius: 6px;
+	max-width: 90%;
+	background-color: var(--yellow);
 }
 
 #modalTable.hide, #fade.hide,#fade2.hide, #modalQuest.hide {
-    opacity: 0;
-    pointer-events: none;
+	opacity: 0;
+	pointer-events: none;
 }
 
 #modalTable.hide, #modalQuest.hide{
-    top: 0;
+	top: 0;
 }
 p {
-    font-size: 1.4em;
+	font-size: 1.4em;
 }
 input{
-    background-color: black;
-    color: var(--yellow);
-
-    font-size: 1.3em;
-    
-    padding: 10px;
-    padding-left: 15px;
-
-    border: none;
-    outline: none;
+	background-color: black;
+	color: var(--yellow);
+	
+	font-size: 1.3em;
+	
+	padding: 10px;
+	padding-left: 15px;
+	
+	border: none;
+	outline: none;
 }
 
 .btns-form{
-    margin-top: 4px;
+	margin-top: 4px;
+	display: flex;
+	justify-content: space-between;
 }
 
 .btns-form button{
-    font-size: 1.3em;
-    padding: 10px;
-    border-radius: 0;
+	font-size: 1.3em;
+	padding: 10px;
+	border-radius: 0;
+	width: 49%;
 }
 
 #responder {
-    transition: .2s;
+	transition: .2s;
 }
 
 .alertResult{
-    position: absolute;
-
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding-block: 2rem;
-    padding-inline: 2rem;
-
-    max-width: 250px;
-    height: auto;
-
-    background-color: var(--yellow);
-
-    border: 1px solid black;
-    border-radius: 12px;
-
-    transition: .5s;
-    z-index: 15;
+	position: absolute;
+	
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	
+	padding-block: 2rem;
+	padding-inline: 2rem;
+	
+	max-width: 250px;
+	height: auto;
+	
+	background-color: var(--yellow);
+	
+	border: 1px solid black;
+	border-radius: 12px;
+	
+	transition: .5s;
+	z-index: 15;
 }
 #btns-alert{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+	margin-top: 1rem;
 }
 
 
 /* icons */
 .material-symbols-outlined {
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 500,
-        'GRAD' 0,
-        'opsz' 24
+	font-variation-settings:
+	'FILL' 0,
+	'wght' 500,
+	'GRAD' 0,
+	'opsz' 24
 }
 
 @media (max-width: 600px){
-    .logo {
-        width: 300px;
-    }
-
-    span {
-        max-width: 300px;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    table{
-        width: 750px;
-    }
-    
-    table tr td {
-        padding: 10px 20px;
-        font-size: 0.8em;
-    }
-
-    #modalQuest {
-        padding: 20px;
-    }
-
-    input {
-        font-size: 1em;
-        padding: 10px;
-        margin: 5px 0;
-    }
-
-    .btns-form button{
-        font-size: 1em;
-    }
+	.logo {
+		width: 300px;
+	}
+	
+	span {
+		max-width: 300px;
+	}
+	
+	.buttons {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		gap: 10px;
+	}
+	
+	table{
+		width: 750px;
+	}
+	
+	table tr td {
+		padding: 10px 20px;
+		font-size: 0.8em;
+	}
+	
+	#modalQuest {
+		padding: 20px;
+	}
+	
+	input {
+		font-size: 1em;
+		padding: 10px;
+		margin: 5px 0;
+	}
+	
+	.btns-form button{
+		font-size: 1em;
+		width: 48%;
+	}
 }
